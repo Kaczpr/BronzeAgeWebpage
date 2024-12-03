@@ -103,9 +103,14 @@ footer {
   transform: scale(1.1);
 }
 
+.topArticles h1{
+  width: 60%;
+  margin: auto;
+  font-size: 3em;
+}
 
 .selectedArticlesTop {
-  min-height: 100dvh;
+  max-height: 800dvh;
   min-width: 100%;
   display: flex;
   justify-content: space-between;
