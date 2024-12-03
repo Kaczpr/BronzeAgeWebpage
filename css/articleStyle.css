@@ -66,13 +66,47 @@ footer {
 .logo:hover {
   transform: scale(1.1);
 }
-
-.title{
-    width: 60%;
+article{
+    width: 70%;
     margin: auto;
-    padding: 2dvh 10dvh;
+    font-size: 1.5em;
+}
+.title {
+  width: 100%;
+  margin: auto;
+  padding: 2dvh 10dvh;
 }
 .title h1 {
-    font-size: 3em;
+  font-size: 2em;
+  text-align: center;
+}
+.title p{
     text-align: center;
+    font-size: 1em;
+    margin: auto auto 0 auto;
+    padding: auto auto 0 auto;
+}
+.articleBanner {
+  width: 100%;
+  max-height: 40dvh;
+  margin:  auto auto 10dvh auto ;
+  overflow: hidden;
+}
+.articleBanner img {
+  transform: translateY(-30dvh);
+  width: 100%;
+  height: auto;
+}
+
+article .content{
+    width: 70%;
+    margin: auto auto 10dvh auto;;
+    padding: 2dvh;
+}
+article p{
+    text-align: justify;
+}
+article h2{
+    text-align: left;
+    font-size: 2em;
 }
