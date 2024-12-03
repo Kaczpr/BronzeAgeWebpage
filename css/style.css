@@ -176,57 +176,9 @@ footer {
   margin: 2dvh;
   text-align: right;
   z-index: 999;
-  
 }
 
 
 
 
 
-article {
-  text-align: left;
-  margin: auto;
-  width: 80%;
-  padding: 0 10px;
-}
-.title h1 {
-  font-size: 2.5em;
-  text-align: center;
-}
-.articleBanner {
-  margin: auto;
-  width: 50%;
-  padding: 2%;
-}
-.content {
-  font-size: 1.5em;
-  display: block;
-  margin: auto;
-  width: 50%;
-}
-.line {
-  display: block;
-  border: 1px solid black;
-  width: 80%;
-  margin: auto;
-}
-.wikiNav ul {
-  display: flex;
-  font-size: 2em;
-  justify-content: center;
-  align-items: center;
-}
-.wikiNav li {
-  padding: 0 40px;
-  margin: 20px 0 20px;
-}
-.wikiHeader {
-  font-size: 2em;
-  margin: 10px;
-}
-.wikiContent p {
-  margin: 5px 50px;
-  text-align: justify;
-  text-justify: inter-word;
-  font-size: 1.5em;
-}

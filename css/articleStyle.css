@@ -1,116 +1,78 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --dark-blue: #b3c8cf;
-    --light-blue: #b3c8cf;
-    --light-beige: #f1eedc;
-    --dark-beige: #e5ddc5;
-  }
-  
-  body {
-    font-family: "Merriweather", sans-serif;
-    font-size: 16px;
-    color: #333;
-    background-color: #b3c8cf;
-    width: 100%;
-    height: 100%;
-  }
-  a {
-    text-decoration: none;
-    color: #333;
-  }
-  ul {
-    list-style: none;
-  }
-  img {
-    max-width: 100%;
-  }
-  footer {
-    background-color: black;
-    color: white;
-    padding: 10px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-blue: #b3c8cf;
+  --light-blue: #b3c8cf;
+  --light-beige: #f1eedc;
+  --dark-beige: #e5ddc5;
+}
+
+body {
+  font-family: "Merriweather", sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #b3c8cf;
+  width: 100%;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+footer {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8em;
+}
+.navbar {
+  padding: 20px;
+  height: 120px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .container ul {
+  display: flex;
+}
+.navbar .container ul li a {
+  padding: 10px 20px;
+  transition: 0.5s ease;
+}
+.navbar .container ul li a:hover {
+  color: blue;
+  font-size: 110%;
+}
+.logo {
+  transition: 0.5s ease;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.title{
+    width: 60%;
+    margin: auto;
+    padding: 2dvh 10dvh;
+}
+.title h1 {
+    font-size: 3em;
     text-align: center;
-    font-size: 0.8em;
-  }
-  .navbar {
-    padding: 20px;
-    height: 120px;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .navbar .container ul {
-    display: flex;
-  }
-  .navbar .container ul li a {
-    padding: 10px 20px;
-    transition: 0.5s ease;
-  }
-  .navbar .container ul li a:hover {
-    color: blue;
-    font-size: 110%;
-  }
-  .logo {
-    transition: 0.5s ease;
-  }
-  .logo:hover {
-    transform: scale(1.1);
-  }
-  article {
-    text-align: left;
-    margin: auto;
-    width: 80%;
-    padding: 0 10px;
-  }
-  .title h1 {
-    font-size: 2.5em;
-    text-align: center;
-  }
-  .articleBanner {
-    margin: auto;
-    width: 50%;
-    padding: 2%;
-  }
-  .content {
-    font-size: 1.5em;
-    display: block;
-    margin: auto;
-    width: 50%;
-  }
-  .line {
-    display: block;
-    border: 1px solid black;
-    width: 80%;
-    margin: auto;
-  }
-  .wikiNav ul {
-    display: flex;
-    font-size: 2em;
-    justify-content: center;
-    align-items: center;
-  }
-  .wikiNav li {
-    padding: 0 40px;
-    margin: 20px 0 20px;
-  }
-  .wikiHeader {
-    font-size: 2em;
-    margin: 10px;
-  }
-  .wikiContent p {
-    margin: 5px 50px;
-    text-align: justify;
-    text-justify: inter-word;
-    font-size: 1.5em;
-  }
-  
+}
