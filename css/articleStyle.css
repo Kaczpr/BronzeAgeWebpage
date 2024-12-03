@@ -110,3 +110,30 @@ article h2{
     text-align: left;
     font-size: 2em;
 }
+
+article .subFooter{
+    display: flex;
+    justify-content: space-between;
+    margin: auto auto 5dvh auto;
+    align-items: center;
+}
+article .checkAlso{
+    width: 50%;
+    border: 2px solid black;
+    margin: 0 2dvh;
+    padding: 3dvh;
+    background-color: #333;
+    color: aliceblue;
+}
+article .source{
+    width: 50%;
+    border: 2px solid black;
+    border: 2px solid black;
+    margin: 0 2dvh;
+    padding: 3dvh;
+    background-color: #333;
+    color: aliceblue;
+}
+article .subFooter ul li{
+    list-style: circle;
+}
