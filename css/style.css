@@ -7,19 +7,20 @@
 :root {
   --navColor: rgba(234, 234, 234, 0.75);
   --bodyColor: #f5f5f5;
+  --fontColor: #333;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   font-size: 1em;
-  color: #333;
+  color: var(--fontColor);
   background-color: var(--bodyColor);
   width: 100%;
   height: 100%;
 }
 a {
   text-decoration: none;
-  color: #333;
+  color: var(--fontColor);
 }
 ul {
   list-style: none;
@@ -66,17 +67,17 @@ footer {
 .logo:hover {
   transform: scale(1.1);
 }
-.hero{
+.hero {
   transform: translateY(-5svh);
   width: 100%;
   margin: auto;
   padding: auto;
   overflow: auto;
 }
-.heroImage{
+.heroImage {
   width: 100%;
 }
-.heroImage img{
+.heroImage img {
   background-image: url(../images/map.png);
   width: 100%;
   display: block;
@@ -84,101 +85,106 @@ footer {
   position: relative;
   opacity: 35%;
 }
-.heroText{
+.heroText {
   width: 100%;
   position: absolute;
   left: 0;
   bottom: 40%;
   text-align: center;
 }
-.heroText h1{
+.heroText h1 {
   font-size: 6em;
   transition: 1s;
 }
-.heroText p{
+.heroText p {
   margin: 0;
   font-size: 2em;
   font-weight: 400;
   transition: 1s;
-
 }
-.heroText h1:hover{
+.heroText h1:hover {
   transform: translateY(-1svh);
   color: black;
 }
-.heroText p:hover{
+.heroText p:hover {
   margin: 0;
   font-weight: 400;
   transform: translateY(-1svh);
 
   color: black;
-
 }
 
-.civs{
+.civs {
   display: flex;
 }
-.civSelection{
+.civSelection {
   display: flex;
   flex-direction: row;
   width: 100%;
   margin: auto;
-  
 }
-.selectedCiv{
+.selectedCiv {
   display: flex;
   flex-direction: column;
   padding: 5svh;
   text-align: justify;
 }
-.civImage img{
+.civImage img {
   width: 250px;
   height: 250px;
   display: block;
   margin: auto;
   transition: 1s;
 }
-.civInfo{
+.civInfo {
   padding: 3svh 1svh;
 }
-.civImage img:hover{
+.civImage img:hover {
   transform: scale(1.1);
 }
 
-
-
 .articles {
-  width: 60%;
-  margin: auto auto 10dvh auto;
+  width: 100%;
+  margin: auto auto 0 auto;
   padding: 5dvh;
-  background-color: #333;
-  color: bisque;
+  background-color: #3333332d;
+  color: var(--fontColor);
 }
-.articlesHypeText h1 {
-  font-size: 4em;
-  text-align: center;
-  padding: 5dvh;
+.articlesText h1 {
+  font-size: 3.2em;
+  font-weight: 500;
+  margin: auto;
+  padding: 0 5svh 0 5svh;
 }
-.selectedArticle {
+.articlesSelection {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border: 3px solid bisque;
-  margin: 5dvh 0;
-  transition: 1s;
-}
-.selectedArticle:hover {
-  transform: translateY(-2dvh);
-}
-.articlePhoto img {
+  align-items: flex-start;
   width: 100%;
-  height: 20dvh;
 }
-.articleText a {
-  color: bisque;
-  font-size: 1.5em;
-  padding: 2dvh;
-  margin: 2dvh;
-  text-align: right;
-  z-index: 999;
+.selectedArticle {
+  padding: 3svh 5svh 3svh 5svh;
+  display: flex;
+  flex-direction: column;
+}
+.articleName {
+  text-align: left;
+  padding: 0 0 0.5svh;
+  font-size: 1.8em;
+}
+.articleImage {
+  width: 100%;
+  min-height: auto;
+  overflow: hidden;
+}
+.articleImage img {
+  padding: 0 0 2svh 0;
+  display: inline-block;
+  height: 50svh;
+  width: 50svh;
+}
+.articleDiscription {
+  text-align: justify;
+  width: 50svh;
+  font-size: 1.2em;
 }
