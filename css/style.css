@@ -66,43 +66,41 @@ footer {
 .logo:hover {
   transform: scale(1.1);
 }
-.hero {
+.hero{
+  transform: translateY(-5svh);
+  width: 100%;
+  margin: auto;
+  padding: auto;
+  overflow: auto;
+}
+.heroImage{
+  width: 100%;
+}
+.heroImage img{
+  background-image: url(../images/map.png);
+  width: 100%;
+  display: block;
+  margin: 5svh auto;
   position: relative;
-  min-height: 100dvh;
-  margin: 2em 10em;
+  opacity: 35%;
 }
-.heroImage {
-  position: relative;
-}
-
-.heroImage img {
-  width: 40%;
-  padding: 1em;
-  transition: 1s;
-}
-.heroText {
+.heroText{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 40%;
   text-align: center;
 }
-.heroText h1 {
-  position: absolute;
-  top: 10%;
-  left: 28%;
+.heroText h1{
   font-size: 6em;
-  transition: 1s;
 }
-.heroText p {
-  position: absolute;
-  top: 25%;
-  left: 35%;
+.heroText p{
+  margin: 0;
   font-size: 2em;
-  transition: 1s;
+  font-weight: 400;
 }
-.heroText:hover {
-  font-size: 105%;
-}
-.heroImage img:hover {
-  transform: scale(1.1);
-}
+
+
 
 .civs {
   width: 80%;
