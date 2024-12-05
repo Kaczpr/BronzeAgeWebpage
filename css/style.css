@@ -93,52 +93,59 @@ footer {
 }
 .heroText h1{
   font-size: 6em;
+  transition: 1s;
 }
 .heroText p{
   margin: 0;
   font-size: 2em;
   font-weight: 400;
+  transition: 1s;
+
+}
+.heroText h1:hover{
+  transform: translateY(-1svh);
+  color: black;
+}
+.heroText p:hover{
+  margin: 0;
+  font-weight: 400;
+  transform: translateY(-1svh);
+
+  color: black;
+
 }
 
-
-
-.civs {
-  width: 80%;
-  margin: auto;
-  padding: 1dvh;
+.civs{
+  display: flex;
 }
-.civsText h1 {
-  font-size: 6em;
-  text-align: center;
-}
-.civsDisplay {
+.civSelection{
+  display: flex;
+  flex-direction: row;
   width: 100%;
   margin: auto;
-  padding: 10dvh;
+  
 }
-.civDisplay a {
+.selectedCiv{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  margin: 10dvh 0;
-  background-color: white;
+  flex-direction: column;
+  padding: 5svh;
+  text-align: justify;
+}
+.civImage img{
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: auto;
   transition: 1s;
 }
-.civDisplay a:hover {
-  transform: translateY(-9dvh);
+.civInfo{
+  padding: 3svh 1svh;
 }
-.civImage img {
-  width: 100%;
-  height: 50dvh;
+.civImage img:hover{
+  transform: scale(1.1);
 }
-.civInfo {
-  padding: 10dvh;
-  text-align: center;
-}
-.civInfo h1 {
-  font-size: 3em;
-}
+
+
 
 .articles {
   width: 60%;
