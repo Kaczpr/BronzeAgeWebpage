@@ -5,17 +5,15 @@
 }
 
 :root {
-  --dark-blue: #b3c8cf;
-  --light-blue: #b3c8cf;
-  --light-beige: #f1eedc;
-  --dark-beige: #e5ddc5;
+  --navColor: rgba(234, 234, 234, 0.75);
+  --bodyColor: #f5f5f5;
 }
 
 body {
-  font-family: "Merriweather", sans-serif;
-  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
   color: #333;
-  background-color: #b3c8cf;
+  background-color: var(--bodyColor);
   width: 100%;
   height: 100%;
 }
@@ -37,9 +35,9 @@ footer {
   font-size: 0.8em;
 }
 .navbar {
-  padding: 20px;
+  padding: 12px;
   height: 120px;
-  background-color: white;
+  background-color: var(--navColor);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -51,14 +49,16 @@ footer {
 }
 .navbar .container ul {
   display: flex;
+  padding: 5px;
 }
 .navbar .container ul li a {
-  padding: 10px 20px;
+  font-size: 1.5em;
+  padding: 20px;
   transition: 0.5s ease;
 }
 .navbar .container ul li a:hover {
   color: blue;
-  font-size: 110%;
+  font-size: 2em;
 }
 .logo {
   transition: 0.5s ease;
@@ -162,14 +162,14 @@ footer {
   margin: 5dvh 0;
   transition: 1s;
 }
-.selectedArticle:hover{
+.selectedArticle:hover {
   transform: translateY(-2dvh);
 }
-.articlePhoto img{
+.articlePhoto img {
   width: 100%;
   height: 20dvh;
 }
-.articleText a{
+.articleText a {
   color: bisque;
   font-size: 1.5em;
   padding: 2dvh;
@@ -177,8 +177,3 @@ footer {
   text-align: right;
   z-index: 999;
 }
-
-
-
-
-
