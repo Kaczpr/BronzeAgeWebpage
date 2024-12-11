@@ -93,7 +93,7 @@ article {
   padding: 0 0 1svh 0;
 }
 .articleBanner img {
-  transform: translateY(-30dvh);
+  transform: translateY(-45svh);
   width: 100%;
   height: auto;
 }
