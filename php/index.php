@@ -18,8 +18,12 @@
     include("../html/nav.html");
     include("../html/hero.html");
     include("../html/civs.html");
+    ?>
+
+    <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
+
 
     $servername = "localhost";
     $username = "root";
@@ -28,73 +32,58 @@
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    // Sprawdzenie połączenia
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+
+    $sql = "SELECT COUNT(*) FROM articles";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_fetch_assoc($result)['COUNT(*)'];
     ?>
 
     <section class="articles">
-        <?php
-        $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription FROM articles WHERE id = 1 ;";
-        $result = $conn->query($sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-            $articleTitle = $row["title"];
-            $articleImage = $row["imageSource"];
-            $articleLink = $row["articleUrl"];
-            $articleDiscription = $row["articleDiscription"];
-            $articleUrl = $row["articleUrl"];
-        }
-        ?>
         <section class="articlesText">
             <h1>Poznaj najnowsze artykuły ze świata archeologii</h1>
         </section>
         <section class="articlesSelection">
-            <section class="selectedArticle">
-                <a href="<?php echo $articleUrl ?>">
-                    <section class="articleImage">
-                        <img src="<?php echo $articleImage; ?>" alt="Obrazek artykułu">
+            <?php
+            $articles2display = array(2, 1, 3);
+            $currentArticle = 0;
+
+            for ($i = 0; $i < count($articles2display); $i++) {
+                $articleId = $articles2display[$i];
+                $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription FROM articles WHERE id = $articleId;";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $articleTitle = $row["title"];
+                        $articleImage = $row["imageSource"];
+                        $articleLink = $row["articleUrl"];
+                        $articleDiscription = $row["articleDiscription"];
+                    }
+                    ?>
+
+                    <section class="selectedArticle">
+                        <a href="<?php echo $articleLink; ?>">
+                            <section class="articleImage">
+                                <img src="<?php echo $articleImage; ?>" alt="Obrazek artykułu">
+                            </section>
+                            <section class="articleName">
+                                <h1><?php echo $articleTitle; ?></h1>
+                            </section>
+                            <section class="articleDiscription">
+                                <p><?php echo $articleDiscription; ?></p>
+                            </section>
+                        </a>
                     </section>
-                    <section class="articleName">
-                        <h1><?php echo $articleTitle ?></h1>
-                    </section>
-                    <section class="articleDiscription">
-                        <p>
-                            <?php echo $articleDiscription ?>
-                        </p>
-                    </section>
-                </a>
-            </section>
-            <section class="selectedArticle">
-                <section class="articleImage">
-                    <img src="../images/stock2.jpg" alt="article image" />
-                </section>
-                <section class="articleName">
-                    <h1>Lorem, ipsum dolor.</h1>
-                </section>
-                <section class="articleDiscription">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-                        consectetur!
-                    </p>
-                </section>
-            </section>
-            <section class="selectedArticle">
-                <section class="articleImage">
-                    <img src="../images/articles/sadMan.jpg" alt="article image" />
-                </section>
-                <section class="articleName">
-                    <h1><a href="articles/esrahadonArticle.html">Aesrahaddon</a></h1>
-                </section>
-                <section class="articleDiscription">
-                    <p>
-                        <a href="esrahadonArticle.html">Choroba tak stara jak cywilizacja? Historia Ashrahaddona -
-                            asyryjskiego króla cierpiącego na depresje.</a>
-                    </p>
-                </section>
-            </section>
+                    <?php
+                }
+            }
+            ?>
         </section>
     </section>
+
     <?php
     $conn->close();
     ?>
