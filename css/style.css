@@ -116,21 +116,26 @@ footer {
 
 .civs {
   display: flex;
+  flex-wrap: wrap;
 }
 .civSelection {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 80%;
   margin: auto;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .selectedCiv {
   display: flex;
   flex-direction: column;
   padding: 5svh;
-  text-align: justify;
+  text-align: left;
+  width: 50%;
 }
 .civImage img {
-  width: 250px;
+  width: 350px;
   height: 250px;
   display: block;
   margin: auto;
@@ -138,6 +143,18 @@ footer {
 }
 .civInfo {
   padding: 3svh 1svh;
+}
+.civName{
+  border-bottom: 1px solid rgba(0, 0, 0);
+  font-size: 2em;
+}
+.civName h1{
+  font-weight: 400;
+}
+.civDisc h2{
+  font-size: 1.5em;
+  font-weight: 300;
+
 }
 .civImage img:hover {
   transform: scale(1.1);

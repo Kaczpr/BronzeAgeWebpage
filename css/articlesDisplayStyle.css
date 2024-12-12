@@ -89,7 +89,6 @@ footer {
     margin:  10svh 30svh;
     text-align: left;
     align-items: flex-start;
-
 }
 .placeName h1{
     border-bottom: 1px solid black;
@@ -105,7 +104,7 @@ footer {
     padding: 1.5svh 0;
 }
 .readMore{
-    padding: 2.5svh 0;
+    padding: 1.5svh 0;
     font-weight: 400;
 
 }
