@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Esarhaddon</title>
+  <title>Artykuły</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -52,33 +52,29 @@
         <div class="oneArticle">
           <ul class="articlesList">
             <?php
-            for ($i = 0; $i < $count; $i++) {
-              $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription, placeOfInterest FROM articles WHERE id = $i";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                  $articleTitle = $row["title"];
-                  $articleLink = $row["articleUrl"];
-                  $articlePlace = $row["placeOfInterest"];
+            $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Assyria'";
+            $result = $conn->query($sql);
 
-                  if ($articlePlace == "Assyria") {
-                    ?>
-                    <li><a href="<?php echo $articleLink; ?>"> <?php echo $articleTitle; ?> </a></li>
-                    <?php
-                  }
-                }
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                $articleTitle = $row["title"];
+                $articleLink = $row["articleUrl"];
+                ?>
+                <li><a href="<?php echo $articleLink; ?>"> <?php echo $articleTitle; ?> </a></li>
+                <?php
               }
-
+            } else {
+              echo "<li>Brak artykułów dla tego miejsca.</li>";
             }
             ?>
-
           </ul>
         </div>
         <div class="readMore">
-        Znajdź więcej artykułów na ten temat &rarr;  
+          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
       </div>
     </div>
+
     <div class="articlesOfCertainPlace">
       <div class="placeName">
         <h1>Babilonia</h1>
@@ -86,6 +82,22 @@
       <div class="articlesList">
         <div class="oneArticle">
           <ul class="articlesList">
+            <?php
+            $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Babylon'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                $articleTitle = $row["title"];
+                $articleLink = $row["articleUrl"];
+                ?>
+                <li><a href="<?php echo $articleLink; ?>"> <?php echo $articleTitle; ?> </a></li>
+                <?php
+              }
+            } else {
+              echo "<li>Brak artykułów dla tego miejsca.</li>";
+            }
+            ?>
           </ul>
         </div>
         <div class="readMore">

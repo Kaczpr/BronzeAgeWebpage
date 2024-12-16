@@ -49,7 +49,7 @@
         </section>
         <section class="articlesSelection">
             <?php
-            $articles2display = array(1,2,3);
+            $articles2display = array(1,4,5);
             $currentArticle = 0;
 
             for ($i = 0; $i < count($articles2display); $i++) {

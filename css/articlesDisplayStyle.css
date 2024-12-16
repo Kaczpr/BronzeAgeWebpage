@@ -108,3 +108,48 @@ footer {
     font-weight: 400;
 
 }
+.Ind_articles {
+  width: 100%;
+  margin: auto auto 0 auto;
+  padding: 5dvh;
+  background-color: #3333332d;
+  color: var(--fontColor);
+}
+.Ind_articlesText h1 {
+  font-size: 3.2em;
+  font-weight: 500;
+  margin: auto;
+  padding: 0 5svh 0 5svh;
+}
+.Ind_articlesSelection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.Ind_selectedArticle {
+  padding: 3svh 5svh 3svh 5svh;
+  display: flex;
+  flex-direction: column;
+}
+.Ind_articleName {
+  text-align: left;
+  padding: 0 0 0.5svh;
+  font-size: 1.8em;
+}
+.Ind_articleImage {
+  width: 100%;
+  min-height: auto;
+  overflow: hidden;
+}
+.Ind_articleImage img {
+  padding: 0 0 2svh 0;
+  display: inline-block;
+  height: 50svh;
+  width: 50svh;
+}
+.Ind_articleDiscription {
+  text-align: justify;
+  width: 50svh;
+  font-size: 1.2em;
+}
