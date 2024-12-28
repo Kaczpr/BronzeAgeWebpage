@@ -36,7 +36,7 @@
     <div class="right">
       <div class="reg">
         <form action="" method="post">
-          <label for="fname">Login:</label><br />
+          <label require for="fname">Login:</label><br />
           <input type="text" id="login" name="login" placeholder="Login.." /><br /><br />
           <label for="lname">Hasło:</label><br />
           <input type="password" id="password" name="password" placeholder="Hasło.." /><br /><br />
