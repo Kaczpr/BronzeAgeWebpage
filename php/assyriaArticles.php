@@ -1,3 +1,7 @@
+<?php
+include ("includes/configSession.inc.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +21,7 @@
 
 <body>
     <?php
-    include("../html/nav.html");
+    include("nav.php");
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     $servername = "localhost";
