@@ -1,3 +1,6 @@
+<?php
+include ("../includes/configSession.inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,23 +16,9 @@
     />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">
-          <a href="../php/index.php">
-            <img src="../../images/ujkSmallTrans.png" alt="logo"
-          /></a>
-        </div>
-        <div class="main-nav-menu">
-          <ul>
-            <li><a href="../../php/index.php">Strona główna</a></li>
-            <li><a href="../../php/index.php">Mapa</a></li>
-            <li><a href="../../php/articles.php">Artykuły</a></li>
-            <li><a href="../../php/login.php">Zaloguj się</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <?php
+    include"../nav.php";
+    ?>
     <article>
       <section class="title">
         <h1>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+include ("includes/configSession.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +20,8 @@ session_start();
 </head>
 
 <body>
-    <?php
-    include("../html/nav.html");
+<?php
+    include("nav.php");
     include("../html/hero.html");
     include("../html/civs.html");
     ?>
