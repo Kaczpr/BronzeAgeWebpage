@@ -1,21 +1,45 @@
 <?php
 declare(strict_types=1);
 
-function getComment(object $pdo, string $commentID){
-
+function getComment(object $pdo, string $commentID): mixed
+{
     $query = "SELECT * FROM comments WHERE commentID = :commentID;";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":commentID", $commentID, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result !== false && isset($result['commentID'])) {
-        return $result; 
-    }
-    else{
+    return $result !== false ? $result : false;
+}
+
+function getCommentAuthor(object $pdo, string $commentID): mixed
+{
+    $comment = getComment($pdo, $commentID);
+
+    if ($comment === false || !isset($comment['authorID'])) {
         return false;
     }
 
+    $authorID = $comment['authorID'];
+
+    $query = "SELECT username FROM users WHERE userID = :authorID";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":authorID", $authorID, PDO::PARAM_STR);
+    $stmt->execute();
+
+    $author = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $author !== false && isset($author['username']) ? $author['username'] : false;
 }
+
+function getAllComments(object $pdo, string $articleID): array {
+    $query = "SELECT commentID FROM comments WHERE articleID = :articleID;";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":articleID", $articleID, PDO::PARAM_STR);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_COLUMN, 0); 
+}
+
 
 ?>

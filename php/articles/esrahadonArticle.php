@@ -146,6 +146,9 @@ include ("../includes/configSession.inc.php");
         </section>
       </section>
     </article>
+    <?php
+    include"../commentSection.php";
+    ?>
     <footer>
       <p>Kacper Bojarski - 143130 UJK WNŚiP</p>
     </footer>

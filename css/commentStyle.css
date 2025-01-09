@@ -1,0 +1,51 @@
+.commentSection {
+  background-color: darkgrey;
+  width: 80%;
+  margin: auto;
+  padding: 1svh;
+}
+.comment{
+    width: 80%;
+    height: auto;
+    border-bottom: 1px solid black;
+    margin: auto;
+    padding: 2svh
+}
+.comment p {
+  font-size: 1em;
+  font-weight: 300;
+}
+.commentInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.authorAndDate {
+  display: flex;
+}
+.commentAuthor {
+  display: grid;
+  align-items: end;
+  font-size: 1.5em;
+  font-weight: 500;
+  padding: 1svh;
+  text-align: center;
+}
+.commentDateAdded {
+  display: grid;
+  align-items: end;
+  font-size: .9em;
+  font-weight: 300;
+  text-align: center;
+  padding-bottom: 1svh;
+}
+.votes {
+  display: flex;
+}
+.upvotes{
+    padding: .5svh;
+    color: green;
+}
+.downvotes{
+    padding: .5svh;
+    color: red;
+}
