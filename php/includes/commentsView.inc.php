@@ -45,7 +45,24 @@ function printAllComments(object $pdo, string $articleID): void
     $IDs = getAllComments($pdo, (string) $articleID);
 
     foreach ($IDs as $id) {
-        $currentID = (string)$id;
+        $currentID = (string) $id;
         printComment($pdo, $currentID);
     }
+}
+function addComment(object $pdo)
+{
+    ?>
+    <div class="addComment">
+    
+        <form action="/BronzeAgeWebpage/php/includes/commentSubmit.inc.php" method="post">
+            <label for="comment-input">Treść komentarza:</label><br />
+            <input type="text" id="comment-input" name="comment-input" placeholder="Dodaj komentarz.." required /><br /><br />
+            <input type="hidden" id="prevPage" name="prevPage" value="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <input type="hidden" id="currentArticleID" name="currentArticleID" value="<?php echo $_SESSION["currentArticleID"]; ?>">
+            <input type="submit" value="Dodaj komentarz" />
+        </form>
+
+    </div>
+
+    <?php
 }

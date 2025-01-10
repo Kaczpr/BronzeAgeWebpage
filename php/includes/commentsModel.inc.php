@@ -32,13 +32,32 @@ function getCommentAuthor(object $pdo, string $commentID): mixed
     return $author !== false && isset($author['username']) ? $author['username'] : false;
 }
 
-function getAllComments(object $pdo, string $articleID): array {
+function getAllComments(object $pdo, string $articleID): array
+{
     $query = "SELECT commentID FROM comments WHERE articleID = :articleID;";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":articleID", $articleID, PDO::PARAM_STR);
     $stmt->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_COLUMN, 0); 
+    return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+}
+function modelAddComment(object $pdo, string $commentContent, int $authorID, string $articleID): void
+{
+    $query = "INSERT INTO comments (content, articleID, authorID) VALUES (
+        :commentContent,
+        :articleID,
+        :authorID
+    )";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":commentContent", $commentContent, PDO::PARAM_STR);
+    $stmt->bindParam(":authorID", $authorID, PDO::PARAM_INT);
+    $stmt->bindParam(":articleID", $articleID, PDO::PARAM_STR);
+
+    if (!$stmt->execute()) {
+        $errorInfo = $stmt->errorInfo();
+        echo "Błąd wykonania zapytania: " . $errorInfo[2];
+    }
 }
 
 

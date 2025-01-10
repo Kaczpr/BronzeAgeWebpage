@@ -8,9 +8,9 @@
     width: 80%;
     height: auto;
     border-bottom: 1px solid black;
-    margin: auto;
-    padding: 2svh
-}
+    margin: 0 0 0 3svh ;
+    padding: 3svh;
+  }
 .comment p {
   font-size: 1em;
   font-weight: 300;
@@ -48,4 +48,55 @@
 .downvotes{
     padding: .5svh;
     color: red;
+}
+
+.addComment {
+  width: 30%;
+  margin: 0 0 0 3svh ;
+  padding: 3svh;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.addComment label {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.addComment input[type="text"] {
+  width: 100%;
+  height: auto;
+  padding: 1svh;
+  margin: 10px 0 20px 0;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.addComment input[type="text"]:focus {
+  border-color: #0066cc;
+  outline: none;
+}
+
+.addComment input[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #0066cc;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addComment input[type="submit"]:hover {
+  background-color: #005bb5;
+}
+
+.addComment input[type="hidden"] {
+  display: none;
 }
