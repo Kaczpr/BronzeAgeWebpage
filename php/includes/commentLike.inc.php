@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require_once("commentContr.inc.php");
     require_once("commentsView.inc.php");
 
-    // Sprawdź, czy użytkownik jest zalogowany
     if (!isset($_SESSION['userID'])) {
         header("Location: /login.php");
         exit();
@@ -20,26 +19,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $currentUserID = $_SESSION['userID'];
     $currentCommentID = $_POST['commentID'];
     $prevPage = $_POST['prevPage'];
-
-    // Sprawdź, czy użytkownik już polubił ten komentarz
     $errors = [];
     if (isLiked($pdo, $currentUserID, $currentCommentID)) {
         $errors["isLiked"] = "Już oceniłeś ten komentarz pozytywnie";
     }
 
     if (!empty($errors)) {
-        // Jeśli są błędy, nie wykonuj dalszych operacji
         var_dump($errors);
-        die();  // Możesz usunąć 'die()' po naprawieniu problemu
+        die();
     } else {
-        // Dodaj like do bazy danych
         addLike($pdo, $currentUserID, $currentCommentID);
-        
-        // Przekierowanie
+        likesCount($pdo, $currentCommentID);
         header("Location: " . $prevPage);
-        exit();  // Zakończ dalsze wykonywanie kodu po przekierowaniu
+        exit();
     }
 } else {
     header("Location: /index.php");
-    exit();  // Zakończ dalsze wykonywanie kodu po przekierowaniu
+    exit();
 }
