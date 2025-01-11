@@ -10,9 +10,13 @@ try {
 }
 function printComment(object $pdo, string $commentID): void
 {
+
     $result = [];
     $result = getComment($pdo, $commentID);
     $author = getCommentAuthor($pdo, $commentID);
+    $commentID = $result['commentID'];
+    settype($commentID, "string");
+    likesCount($pdo, $commentID);
     ?>
     <div class="comment">
         <div class="commentInfo">

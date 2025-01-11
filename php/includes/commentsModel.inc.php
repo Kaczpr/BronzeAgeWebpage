@@ -66,5 +66,23 @@ function addLike(object $pdo, int $userID, string $commentID){
     $stmt->bindParam(':commentID', $commentID, PDO::PARAM_STR);
     $stmt->execute();
 }
+function likesCount(object $pdo, string $commentID)
+{
+    $query = "SELECT COUNT(*) FROM likes WHERE commentID = :commentID";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':commentID', $commentID, PDO::PARAM_STR); 
+    $stmt->execute();
+    $likeCount = $stmt->fetchColumn();
+
+    $updateQuery = "UPDATE comments
+                    SET upvotes = :likeCount
+                    WHERE commentID = :commentID";
+    $updateStmt = $pdo->prepare($updateQuery);
+    $updateStmt->bindParam(':likeCount', $likeCount, PDO::PARAM_INT);
+    $updateStmt->bindParam(':commentID', $commentID, PDO::PARAM_STR);
+    $updateStmt->execute();
+
+    //return $likeCount;
+}
 
 ?>

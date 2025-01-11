@@ -18,15 +18,3 @@ function isLiked(object $pdo, int $userID, string $commentID)
         return false;
     }
 }
-function likesCount(object $pdo, string $commentID)
-{
-    $query = "SELECT COUNT(*) FROM likes WHERE commentID = :commentID";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':commentID', $commentID, PDO::PARAM_INT);
-    $stmt->execute();
-    $likeCount = $stmt->fetchColumn();
-
-    $query = "UPDATE comments
-    SET upvotes = $likeCount;
-    ";
-}
