@@ -3,6 +3,7 @@ declare(strict_types=1);
 try {
     require_once("dbh.inc.php");
     require_once("commentsModel.inc.php");
+    require_once("commentContr.inc.php");
 
 
 } catch (PDOException $e) {
@@ -29,15 +30,14 @@ function printComment(object $pdo, string $commentID): void
                 </div>
             </div>
             <?php if (isset($_SESSION['userID'])) { ?>
-
-
                 <div class="comment-actions">
                     <span class="like-count">Liczba lajków: <?php echo $result['upvotes']; ?></span>
                     <form action="/BronzeAgeWebpage/php/includes/commentLike.inc.php" method="POST">
                         <input type="hidden" id="commentID" name="commentID" value="<?php echo $result["commentID"]; ?>">
                         <input type="hidden" id="prevPage" name="prevPage" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-
-                        <button type="submit" class="like-button">Polub</button>
+                        <?php if (!(isLiked($pdo, $_SESSION['userID'], $commentID))) { ?>
+                            <button type="submit" class="like-button">Polub</button><?php
+                        } ?>
                     </form>
                 </div>
                 <?php
