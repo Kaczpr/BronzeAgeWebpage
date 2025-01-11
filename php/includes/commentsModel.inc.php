@@ -59,6 +59,12 @@ function modelAddComment(object $pdo, string $commentContent, int $authorID, str
         echo "Błąd wykonania zapytania: " . $errorInfo[2];
     }
 }
-
+function addLike(object $pdo, int $userID, string $commentID){
+    $query = "INSERT INTO likes (userID, commentID) VALUES (:userID, :commentID)";  
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+    $stmt->bindParam(':commentID', $commentID, PDO::PARAM_STR);
+    $stmt->execute();
+}
 
 ?>

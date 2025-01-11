@@ -24,15 +24,20 @@ function printComment(object $pdo, string $commentID): void
                     Dodano: <?php print_r($result['dateAdded']) ?>
                 </div>
             </div>
-            <div class="votes">
-                <div class="upvotes">
-                    <i class="fa fa-thumbs-up" style="font-size:24px"></i> <?php print_r($result['upvotes']) ?>
-                </div>
-                <div class="downvotes">
-                    <i class="fa fa-thumbs-down" style="font-size:24px"></i> <?php print_r($result['downvotes']) ?>
+            <?php if (isset($_SESSION['userID'])) { ?>
 
+
+                <div class="comment-actions">
+                    <span class="like-count">Liczba lajków: <?php echo $result['upvotes']; ?></span>
+                    <form action="/BronzeAgeWebpage/php/includes/commentLike.inc.php" method="POST">
+                        <input type="hidden" id="commentID" name="commentID" value="<?php echo $result["commentID"]; ?>">
+                        <input type="hidden" id="prevPage" name="prevPage" value="<?php echo $_SERVER['PHP_SELF']; ?>">
+
+                        <button type="submit" class="like-button">Polub</button>
+                    </form>
                 </div>
-            </div>
+                <?php
+            } ?>
         </div>
         <div class="commentContent">
             <p><?php echo ($result)['content'] ?></p>
@@ -53,12 +58,14 @@ function addComment(object $pdo)
 {
     ?>
     <div class="addComment">
-    
+
         <form action="/BronzeAgeWebpage/php/includes/commentSubmit.inc.php" method="post">
             <label for="comment-input">Treść komentarza:</label><br />
-            <input type="text" id="comment-input" name="comment-input" placeholder="Dodaj komentarz.." required /><br /><br />
+            <input type="text" id="comment-input" name="comment-input" placeholder="Dodaj komentarz.."
+                required /><br /><br />
             <input type="hidden" id="prevPage" name="prevPage" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="hidden" id="currentArticleID" name="currentArticleID" value="<?php echo $_SESSION["currentArticleID"]; ?>">
+            <input type="hidden" id="currentArticleID" name="currentArticleID"
+                value="<?php echo $_SESSION["currentArticleID"]; ?>">
             <input type="submit" value="Dodaj komentarz" />
         </form>
 
