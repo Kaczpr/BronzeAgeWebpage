@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['userID'] = $result['userID'];
         $_SESSION['userUsername'] = $result['username'];
         $_SESSION['userName'] = $result['name'];
+        $_SESSION['userEmail'] = $result['email'];
         
         $_SESSION["lastRegeneration"] = time();
         

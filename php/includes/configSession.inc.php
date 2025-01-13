@@ -12,6 +12,11 @@ session_set_cookie_params([
 ]);
 
 session_start();
+if (!isset($_SESSION['csrfToken'])) {
+    $_SESSION['csrfToken'] = bin2hex(random_bytes(32));
+    $csrfToken = $_SESSION['csrfToken'];
+}
+
 
 if (isset($_SESSION["userID"])) {
     if (!isset($_SESSION["lastRegeneration"])) {
@@ -36,11 +41,15 @@ if (isset($_SESSION["userID"])) {
 function regenerateSessionID(): void {
     session_regenerate_id(true);
     $_SESSION["lastRegeneration"] = time();
+    header("Location: /BronzeAgeWebpage/php/index.php");
+    die();
 }
 
 function regenerateSessionID_loggedIn(): void {
     session_regenerate_id(true);
     $_SESSION["lastRegeneration"] = time();
+    header("Location: /BronzeAgeWebpage/php/index.php");
+    die();
 }
 
 

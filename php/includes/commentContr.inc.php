@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-function isInputEmpty(string $commentContent): bool {
+function isInputEmpty(string $commentContent): bool
+{
     return empty($commentContent);
 }
 function isLiked(object $pdo, int $userID, string $commentID)
@@ -18,3 +19,4 @@ function isLiked(object $pdo, int $userID, string $commentID)
         return false;
     }
 }
+
