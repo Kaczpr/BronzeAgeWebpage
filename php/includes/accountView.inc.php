@@ -5,4 +5,5 @@ function checkPwdChangeErrors(){
         echo "<p class='error-message'>" . htmlspecialchars($error) . "</p>";
     }
     unset($_SESSION["errorPwdChange"]);
+    die();
 }

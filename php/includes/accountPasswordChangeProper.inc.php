@@ -29,9 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($errors) {
             $_SESSION["errorPwdChange"] = $errors;
-            $currentUrl = $_SERVER['REQUEST_URI'];
+            //$currentUrl = $_SERVER['REQUEST_URI'];
             //header("Location: $currentUrl");
-            var_dump($errors);
+            //var_dump($errors);
+            header("Location: ../account.php?signup=failure");
             die();
         }
         $userID = $_SESSION['userID'];
