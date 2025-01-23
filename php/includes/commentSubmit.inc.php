@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors['inputEmpty'] = "Podaj treść komentarza.";
         }
         if (!empty($errors)) {
+            var_dump($errors);
             die();
         } else {
             modelAddComment($pdo, $commentContent, $authorID, $articleID);

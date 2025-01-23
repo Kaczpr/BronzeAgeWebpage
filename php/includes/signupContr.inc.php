@@ -38,4 +38,27 @@ function createUser(object $pdo, string $username, string $email, string $passwo
 {
     setUser($pdo, $username, $email, $password, $name);
 }
+
+function isPwdLong(string $pwd)
+{
+    if (mb_strlen($pwd) > 8) {
+        return true;
+    } else
+        return false;
+
+}
+function isPwdContainSpecialChar(string $pwd)
+{
+    if (preg_match('/\d/', $pwd) && preg_match('/[^a-zA-Z\d]/', $pwd)) {
+        return true;
+    } else
+        return false;
+}
+function isPwdInvalid(string $pwd)
+{
+    if (!isPwdLong($pwd) && isPwdContainSpecialChar($pwd))
+        return true;
+    else
+        return false;
+}
 ?>

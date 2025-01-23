@@ -1,24 +1,30 @@
-<form
-  method="post"
-  action="/BronzeAgeWebpage/php/includes/accountPasswordChangeProper.inc.php"
->
-  <label for="prevPwd">Podaj poprzednie hasło</label><br />
-  <input
-    type="password"
-    id="prevPwd"
-    name="prevPwd"
-    placeholder="Poprzednie hasło.."
-    required
-  /><br /><br />
+<div class="modal">
+  <div class="modalContent">
+    <span class="close" id="closeModalBtn">&times;</span>
+    <h2>Formularz</h2>
+    <form
+      method="POST"
+      action="/BronzeAgeWebpage/php/includes/accountPasswordChangeProper.inc.php"
+    >
+      <label for="prevPwd">Podaj poprzednie hasło</label><br />
+      <input
+        type="password"
+        id="prevPwd"
+        name="prevPwd"
+        placeholder="Poprzednie hasło.."
+        required
+      /><br /><br />
 
-  <label for="newPwd">Podaj nowe hasło:</label><br />
-  <input
-    type="password"
-    id="newPwd"
-    name="newPwd"
-    placeholder="Nowe hasło.."
-    required
-  /><br /><br />
+      <label for="newPwd">Podaj nowe hasło:</label><br />
+      <input
+        type="password"
+        id="newPwd"
+        name="newPwd"
+        placeholder="Nowe hasło.."
+        required
+      /><br /><br />
 
-  <input type="submit" value="Zmień hasło" />
-</form>
+      <input type="submit" value="Zmień hasło" />
+    </form>
+  </div>
+</div>
