@@ -27,25 +27,18 @@ function isPwdWrong(string $pwd, string $hashedPwd): bool {
     return !password_verify($pwd, $hashedPwd);
 }
 
-function isPwdLong(string $pwd)
+function isPwdLong(string $pwd): bool
 {
-    if (mb_strlen($pwd) > 8) {
-        return true;
-    } else
-        return false;
+    return mb_strlen($pwd) > 8;
+}
 
-}
-function isPwdContainSpecialChar(string $pwd)
+function isPwdContainSpecialChar(string $pwd): bool
 {
-    if (!preg_match('/\d/', $pwd) && preg_match('/[^a-zA-Z\d]/', $pwd)) {
-        return true;
-    } else
-        return false;
+    return preg_match('/\d/', $pwd) && preg_match('/[^a-zA-Z\d]/', $pwd);
 }
-function isPwdInvalid(string $pwd)
+
+function isPwdInvalid(string $pwd): bool
 {
-    if (!isPwdLong($pwd) && isPwdContainSpecialChar($pwd))
-        return true;
-    else
-        return false;
+    return !(isPwdLong($pwd) && isPwdContainSpecialChar($pwd));
 }
+

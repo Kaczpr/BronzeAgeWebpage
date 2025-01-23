@@ -157,3 +157,24 @@ input[type="reset"] {
   font-weight: 300;
   padding-bottom: 2svh;
 }
+
+.buttons {
+  display: flex;
+  width: 70%;
+  margin: auto;
+  padding: 5svh;
+  justify-content: space-around;
+}
+.buttons button {
+  width: 40%;
+  height: auto;
+  font-size: 2em;
+  padding: 1svh;
+  background-color: var(--navColor);
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: .75s;
+}
+.buttons button:hover{
+  background-color: rgba(160, 160, 160, 0.75);
+}

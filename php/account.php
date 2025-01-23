@@ -18,11 +18,16 @@ include("includes/configSession.inc.php");
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="http://localhost/BronzeAgeWebpage/js/script.js" defer></script>
+    <script src="http://localhost/BronzeAgeWebpage/js/modal.js" defer></script>
+    <link rel="stylesheet" href="../css/modalsStyle.css">
+
+
 </head>
 
 
 <?php
 include("nav.php");
+require_once("includes/accountView.inc.php");
 ?>
 <div class="account">
     <div class="left">
@@ -39,7 +44,15 @@ include("nav.php");
         <h2><?php echo $_SESSION['userName'] ?></h2>
         <h1>Twój adres e-mail</h1>
         <h2><?php echo $_SESSION['userEmail'] ?></h2>
-        <button onclick="zmienHaslo()">Zmień hasło</button>
-        <button onclick="usunKonto()">Usuń konto</button>
+        <div class="buttons">
+            <button data-open-modal class="changePwd">Zmień Hasło</button>
+            <dialog data-modal>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/html/includes/pwdChange.inc.html"); ?>
+                <?php ?>
+                <button data-close-modal>Zamknij</button>
+            </dialog>
+            <button onclick="usunKonto()">Usuń konto</button>
+        </div>
+
     </div>
 </div>

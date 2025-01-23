@@ -1,5 +1,5 @@
 <?php
-include ("includes/configSession.inc.php");
+require_once ("includes/configSession.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,6 @@ include ("includes/configSession.inc.php");
     <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-
 
     $servername = "localhost";
     $username = "root";

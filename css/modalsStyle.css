@@ -1,0 +1,15 @@
+dialog[data-modal] {
+    border: none;
+    padding: 2svh;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 90%;
+    text-align: center;
+    margin: auto;
+  }
+  
+  dialog[data-modal]::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  

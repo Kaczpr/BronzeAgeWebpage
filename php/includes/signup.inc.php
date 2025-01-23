@@ -30,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isEmailTaken($pdo, $email)) {
             $errors["emailTaken"] = "Taki e-mail jest juz wykorzystany - podaj inny";
         }
+        if(isPwdInvalid($pwd)){
+            $errors["pwdInvalid"] = "Hasło musi zawierać więcej niz 8 znaków, w tym przynajmniej jeden znak specjalny";
+
+        }
 
         require_once("configSession.inc.php");
 
