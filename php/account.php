@@ -50,6 +50,7 @@ require_once("includes/accountView.inc.php");
                 <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/html/includes/pwdChange.inc.html"); ?>
                 <?php ?>
                 <button data-close-modal>Zamknij</button>
+                <?php checkPwdChangeErrors();?>
             </dialog>
             <button onclick="usunKonto()">Usuń konto</button>
         </div>
