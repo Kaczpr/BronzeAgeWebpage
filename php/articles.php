@@ -30,7 +30,7 @@ include ("includes/configSession.inc.php");
 
   $servername = "localhost";
   $username = "root";
-  $password = "";
+  $password = "1234";
   $database = "bronzeAgeWebsite";
 
   $conn = new mysqli($servername, $username, $password, $database);
@@ -55,7 +55,7 @@ include ("includes/configSession.inc.php");
         <div class="oneArticle">
           <ul class="articlesList">
             <?php
-            $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Assyria'";
+            $sql = "SELECT id, articleUrl, title, imageSource,dateStored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Assyria'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -86,7 +86,7 @@ include ("includes/configSession.inc.php");
         <div class="oneArticle">
           <ul class="articlesList">
             <?php
-            $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Babylon'";
+            $sql = "SELECT id, articleUrl, title, imageSource,dateStored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Babylon'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

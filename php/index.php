@@ -32,7 +32,7 @@ require_once ("includes/configSession.inc.php");
 
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "1234";
     $database = "bronzeAgeWebsite";
 
     $conn = new mysqli($servername, $username, $password, $database);
@@ -45,19 +45,18 @@ require_once ("includes/configSession.inc.php");
     $result = mysqli_query($conn, $sql);
     $count = mysqli_fetch_assoc($result)['COUNT(*)'];
     ?>
-
     <section class="articles">
         <section class="articlesText">
             <h1>Poznaj najnowsze artykuły ze świata archeologii</h1>
         </section>
         <section class="articlesSelection">
             <?php
-            $articles2display = array(1,4,5);
+            $articles2display = array(1,2,3);
             $currentArticle = 0;
 
             for ($i = 0; $i < count($articles2display); $i++) {
                 $articleId = $articles2display[$i];
-                $sql = "SELECT id, articleUrl, title, imageSource, html_content, date_stored, articleDiscription FROM articles WHERE id = $articleId;";
+                $sql = "SELECT id, articleUrl, title, imageSource, dateStored, articleDiscription FROM articles WHERE id = $articleId;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
