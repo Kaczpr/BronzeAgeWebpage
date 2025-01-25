@@ -36,7 +36,6 @@ require_once("includes/accountView.inc.php");
     </div>
     <div class="right">
         <form action="POST">
-            <input type="hidden" id="csrfToken" value="<?php echo htmlspecialchars($_SESSION['csrfToken']); ?>">
         </form>
         <h1>Twój login</h1>
         <h2><?php echo $_SESSION['userUsername'] ?></h2>
@@ -47,14 +46,18 @@ require_once("includes/accountView.inc.php");
         <div class="buttons">
             <button data-open-modal class="changePwd">Zmień Hasło</button>
             <dialog data-modal>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/html/includes/pwdChange.inc.html"); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/php/includes/pwdChange.inc.php"); ?>
                 <?php ?>
                 <button data-close-modal>Zamknij</button>
             </dialog>
-            <button onclick="usunKonto()">Usuń konto</button>
-
+            <button data-open-modal class="accountDelete">Usuń Konto</button>
+            <dialog data-modal>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/php/includes/pwdChange.inc.php"); ?>
+                <?php ?>
+                <button data-close-modal>Zamknij</button>
+            </dialog>
         </div>
-        
+
         <?php checkPwdChangeErrors(); ?>
 
     </div>

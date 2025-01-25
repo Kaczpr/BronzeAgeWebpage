@@ -3,12 +3,19 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
+require_once('tokenVerification.inc.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-
     try {
-        echo "test";
+        $csrfToken = $_POST['csrfToken'] ?? '';
+
+        if (!verifyCsrfToken($csrfToken)) {
+            $_SESSION["errorPwdChange"] = ["csrfError" => "Nieprawidłowy token CSRF|" . $csrfToken];
+            $_SESSION['test'] = $_POST['csrfToken'];
+            header("Location: ../account.php?signup=failure");
+            die();
+        }
+
         require_once("accountContr.inc.php");
         require_once("accountModel.inc.php");
         require_once("configSession.inc.php");
@@ -22,16 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors['wrongPwd'] = "Podano błędne hasło.";
         }
 
-        if (isPwdInvalid($newPwd)) {
-            $errors['invalidPwd'] = "Hasło musi zawierać przynajmniej 9 znaków, w tym przynajmniej jeden znak specjalny";
+        if (!(isPwdValid($newPwd))) {
+            $errors['invalidPwd'] = "Hasło musi zawierać przynajmniej 9 znaków, w tym przynajmniej jeden znak specjalny i liczbe! bulbulbul";
         }
-
 
         if ($errors) {
             $_SESSION["errorPwdChange"] = $errors;
-            //$currentUrl = $_SERVER['REQUEST_URI'];
-            //header("Location: $currentUrl");
-            //var_dump($errors);
             header("Location: ../account.php?signup=failure");
             die();
         }
@@ -45,7 +48,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("Wpis nieudany" . $e->getMessage());
     }
 } else {
-    echo "dupa";
-    //header("Location: ../index.php");
     die();
 }

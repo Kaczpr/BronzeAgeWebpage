@@ -37,8 +37,12 @@ function isPwdContainSpecialChar(string $pwd): bool
     return preg_match('/\d/', $pwd) && preg_match('/[^a-zA-Z\d]/', $pwd);
 }
 
-function isPwdInvalid(string $pwd): bool
+function isPwdValid(string $pwd): bool
 {
-    return !(isPwdLong($pwd) && isPwdContainSpecialChar($pwd));
+    if(isPwdLong($pwd)&&isPwdContainSpecialChar($pwd)){
+        return true;
+    }else{
+        return false;
+    }
 }
 

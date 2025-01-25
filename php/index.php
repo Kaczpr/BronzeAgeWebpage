@@ -1,5 +1,7 @@
 <?php
 require_once ("includes/configSession.inc.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ require_once ("includes/configSession.inc.php");
 <body>
 <?php
     include("nav.php");
-    include("../html/hero.html");
+    include("includes/hero.inc.php");
     include("../html/civs.html");
     ?>
 
