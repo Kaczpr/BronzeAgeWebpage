@@ -44,15 +44,15 @@ require_once("includes/accountView.inc.php");
         <h1>Twój adres e-mail</h1>
         <h2><?php echo $_SESSION['userEmail'] ?></h2>
         <div class="buttons">
-            <button data-open-modal class="changePwd">Zmień Hasło</button>
-            <dialog data-modal>
+            <button data-open-modal data-target="#changePwdModal" class="changePwdModal">Zmień Hasło</button>
+            <dialog id="changePwdModal" data-modal>
                 <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/php/includes/pwdChange.inc.php"); ?>
                 <?php ?>
                 <button data-close-modal>Zamknij</button>
             </dialog>
-            <button data-open-modal class="accountDelete">Usuń Konto</button>
-            <dialog data-modal>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/php/includes/pwdChange.inc.php"); ?>
+            <button data-open-modal data-target="#accountDeleteModal" class="accountDeleteModal">Usuń Konto</button>
+            <dialog id="accountDeleteModal" data-modal>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . "/BronzeAgeWebpage/php/includes/accountDelete.inc.php"); ?>
                 <?php ?>
                 <button data-close-modal>Zamknij</button>
             </dialog>

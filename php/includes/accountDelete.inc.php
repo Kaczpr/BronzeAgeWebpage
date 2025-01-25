@@ -1,25 +1,25 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<form
+  method="POST"
+  action="/BronzeAgeWebpage/php/includes/accountDeleteProper.inc.php"
+>
+<h3>Uwaga! Usunięcie konta jest nieodwracalne!</h3>
+  <label for="prevPwd">Podaj login:</label><br />
+  <input
+    type="login"
+    id="login"
+    name="login"
+    placeholder="Login.."
+    required
+  /><br /><br />
 
-require_once("configSession.inc.php");
-header('Content-Type: text/html');  
+  <label for="newPwd">Podaj hasło:</label><br />
+  <input
+    type="password"
+    id="pwd"
+    name="pwd"
+    placeholder="Hasło.."
+    required
+  /><br /><br />
 
-// Pobierz dane wejściowe
-$token = $_SESSION['csrfToken'] ?? '';
-
-// Sprawdź, czy CSRF token istnieje w sesji
-if (!isset($_SESSION['csrfToken'])) {
-    echo json_encode(['success' => false, 'error' => 'CSRF token not set in session']);
-    exit;
-}
-
-// Porównaj tokeny
-if (hash_equals($_SESSION['csrfToken'], $token)) {
-    echo json_encode(['success' => true]);
-    exit;
-} else {
-    echo json_encode(['success' => false, 'error' => 'Invalid CSRF token']);
-    exit;
-}
+  <input type="submit" value="Usuń konto" />
+</form>
