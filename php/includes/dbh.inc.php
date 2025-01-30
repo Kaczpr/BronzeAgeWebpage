@@ -2,7 +2,7 @@
 $host = 'localhost';
 $database = "bronzeAgeWebsite";
 $DBusername = 'root';
-$password = '1234';
+$password = 'Maslo1234';
 
 
 try {
