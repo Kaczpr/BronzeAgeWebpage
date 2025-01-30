@@ -34,7 +34,7 @@ ini_set('display_errors', 1);
 
     $servername = "localhost";
     $username = "root";
-    $password = "1234";
+    $password = "Maslo1234";
     $database = "bronzeAgeWebsite";
 
     $conn = new mysqli($servername, $username, $password, $database);
@@ -58,11 +58,12 @@ ini_set('display_errors', 1);
 
             for ($i = 0; $i < count($articles2display); $i++) {
                 $articleId = $articles2display[$i];
-                $sql = "SELECT id, articleUrl, title, imageSource, dateStored, articleDiscription FROM articles WHERE id = $articleId;";
+                $sql = "SELECT articleID, articleUrl, title, imageSource, dateStored, articleDiscription FROM articles WHERE articleID = $articleId;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
+                        $articleID = $row["articleID"];
                         $articleTitle = $row["title"];
                         $articleImage = $row["imageSource"];
                         $articleLink = $row["articleUrl"];
@@ -71,7 +72,7 @@ ini_set('display_errors', 1);
                     ?>
 
                     <section class="selectedArticle">
-                        <a href="<?php echo $articleLink; ?>">
+                        <a href="<?php echo "articleDisplay.php?articleID=$articleID" ; ?>">
                             <section class="articleImage">
                                 <img src="<?php echo $articleImage; ?>" alt="Obrazek artykułu">
                             </section>

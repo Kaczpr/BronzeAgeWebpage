@@ -9,5 +9,5 @@ function getArticle(object $pdo, int $articleID): ?array
     $stmt->bindParam(":articleID", $articleID, PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $result ?: null; // Zwraca wynik lub null, jeśli nie znaleziono artykułu
+    return $result ?: null; 
 }

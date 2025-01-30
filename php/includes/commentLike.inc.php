@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         addLike($pdo, $currentUserID, $currentCommentID);
         likesCount($pdo, $currentCommentID);
-        header("Location: " . $prevPage);
+        header("Location: " . $prevPage."?articleID=".$_SESSION['currentArticleID']);
         exit();
     }
 } else {

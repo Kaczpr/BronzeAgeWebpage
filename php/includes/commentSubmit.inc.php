@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         } else {
             modelAddComment($pdo, $commentContent, $authorID, $articleID);
-            header("Location: " . $prevPage);
+            header("Location: " . $prevPage."?articleID=".$_SESSION["currentArticleID"]);
             die();
 
 
