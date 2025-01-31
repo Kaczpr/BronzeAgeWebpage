@@ -1,5 +1,6 @@
 <?php
 require_once ("includes/configSession.inc.php");
+require_once ("articles/articleView.inc.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
@@ -27,26 +28,6 @@ ini_set('display_errors', 1);
     include("includes/hero.inc.php");
     include("../html/civs.html");
     ?>
-
-    <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "Maslo1234";
-    $database = "bronzeAgeWebsite";
-
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT COUNT(*) FROM articles";
-    $result = mysqli_query($conn, $sql);
-    $count = mysqli_fetch_assoc($result)['COUNT(*)'];
-    ?>
     <section class="articles">
         <section class="articlesText">
             <h1>Poznaj najnowsze artykuły ze świata archeologii</h1>
@@ -54,39 +35,7 @@ ini_set('display_errors', 1);
         <section class="articlesSelection">
             <?php
             $articles2display = array(1,2,3);
-            $currentArticle = 0;
-
-            for ($i = 0; $i < count($articles2display); $i++) {
-                $articleId = $articles2display[$i];
-                $sql = "SELECT articleID, articleUrl, title, imageSource, dateStored, articleDiscription FROM articles WHERE articleID = $articleId;";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $articleID = $row["articleID"];
-                        $articleTitle = $row["title"];
-                        $articleImage = $row["imageSource"];
-                        $articleLink = $row["articleUrl"];
-                        $articleDiscription = $row["articleDiscription"];
-                    }
-                    ?>
-
-                    <section class="selectedArticle">
-                        <a href="<?php echo "articleDisplay.php?articleID=$articleID" ; ?>">
-                            <section class="articleImage">
-                                <img src="<?php echo $articleImage; ?>" alt="Obrazek artykułu">
-                            </section>
-                            <section class="articleName">
-                                <h1><?php echo $articleTitle; ?></h1>
-                            </section>
-                            <section class="articleDiscription">
-                                <p><?php echo $articleDiscription; ?></p>
-                            </section>
-                        </a>
-                    </section>
-                    <?php
-                }
-            }
+            displayIndexArticles($pdo, $articles2display);
             ?>
         </section>
     </section>

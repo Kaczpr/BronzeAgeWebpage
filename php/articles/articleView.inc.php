@@ -58,7 +58,8 @@ function displayAllArticles(object $pdo, string $placeOfInterest)
             <section class="articlesSelection">
                 <?php foreach ($result as $article) { ?>
                     <section class="Ind_selectedArticle">
-                        <a href="<?php echo $article['articleUrl']; ?>">
+                        <?php $articleID = $article['articleID'] ?>
+                        <a href="<?php echo "/BronzeAgeWebpage/php/articleDisplay.php?articleID=$articleID"; ?>">
                             <section class="Ind_articleImage">
                                 <img src="<?php echo $article['imageSource']; ?>" alt="Obrazek artykułu">
                             </section>
@@ -77,9 +78,33 @@ function displayAllArticles(object $pdo, string $placeOfInterest)
         </section>
         <?php
 
-    }else{
+    } else {
         ?>
         <h2 style="text-align: center">"Brak artykułów dla takiego miejsca."</h2>
         <?php
+    }
+}
+function displayIndexArticles(object $pdo, array $articles2Display): void
+{
+    for ($i = 0; $i <= 3; $i++) { 
+        $result = getArticle($pdo, $articles2Display[$i]); 
+        if ($result) { 
+            ?>
+            <section class="selectedArticle">
+                <?php $articleID = $result['articleID']; ?>
+                <a href="<?php echo "articleDisplay.php?articleID=$articleID"; ?>">
+                    <section class="articleImage">
+                        <img src="<?php echo $result['imageSource']; ?>" alt="Obrazek artykułu">
+                    </section>
+                    <section class="articleName">
+                        <h1><?php echo htmlspecialchars($result['title']); ?></h1>
+                    </section>
+                    <section class="articleDiscription">
+                        <p><?php echo htmlspecialchars($result['articleDiscription']); ?></p>
+                    </section>
+                </a>
+            </section>
+            <?php
+        }
     }
 }
