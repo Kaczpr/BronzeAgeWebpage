@@ -10,7 +10,6 @@
       <div class="main-nav-menu">
         <ul>
           <li><a href="/BronzeAgeWebpage/php/index.php">Strona główna</a></li>
-          <li><a href="/BronzeAgeWebpage/php/index.php">Mapa</a></li>
           <li><a href="/BronzeAgeWebpage/php/articles.php">Artykuły</a></li>
           <?php if (!isset($_SESSION["userID"])){ ?>
             <li><a href="/BronzeAgeWebpage/php/login.php">Zaloguj się</a></li>

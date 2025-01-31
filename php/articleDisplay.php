@@ -15,7 +15,7 @@ try {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Esarhaddon</title>
+    <title>Artykuł</title>
     <link rel="stylesheet" href="../css/articleStyle.css" />
     <link rel="stylesheet" href="../css/commentStyle.css" />
 

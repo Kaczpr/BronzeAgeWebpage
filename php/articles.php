@@ -1,6 +1,17 @@
 <?php
-include ("includes/configSession.inc.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+try {
+    require_once("includes/configSession.inc.php");
+    require_once("articles/articleView.inc.php");
+    require_once("includes/configSession.inc.php");
+} catch (Exception $e) {
+    die("Test nieudany: " . $e->getMessage());
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,30 +28,10 @@ include ("includes/configSession.inc.php");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-
 <body>
-
-
-
-  <?php
+<?php
   include("nav.php");
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "1234";
-  $database = "bronzeAgeWebsite";
-
-  $conn = new mysqli($servername, $username, $password, $database);
-
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-  $sql = "SELECT COUNT(*) FROM articles";
-  $result = mysqli_query($conn, $sql);
-  $count = mysqli_fetch_assoc($result)['COUNT(*)'];
+  
   ?>
   <div class="head">
     <h1>Wszystkie Artykuły</h1>
@@ -48,107 +39,57 @@ include ("includes/configSession.inc.php");
   </div>
   <div class="articles">
     <div class="articlesOfCertainPlace">
-      <div class="placeName">
-        <h1>Asyria</h1>
-      </div>
-      <div class="articlesList">
-        <div class="oneArticle">
-          <ul class="articlesList">
-            <?php
-            $sql = "SELECT id, articleUrl, title, imageSource,dateStored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Assyria'";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
-                $articleTitle = $row["title"];
-                $articleLink = $row["articleUrl"];
-                ?>
-                <li><a href="<?php echo $articleLink; ?>"> <?php echo $articleTitle; ?> </a></li>
-                <?php
-              }
-            } else {
-              echo "<li>Brak artykułów dla tego miejsca.</li>";
-            }
-            ?>
-          </ul>
+        <div class="placeName">
+            <h1>Asyria</h1>
+            <div class="articleList">
+                <div class="oneArticle"> <?php
+                    displayArticleList($pdo, "Assyria");?> 
+                </div>
+            </div>
         </div>
         <div class="readMore">
           <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
-      </div>
-    </div>
-
-    <div class="articlesOfCertainPlace">
-      <div class="placeName">
-        <h1>Babilonia</h1>
-      </div>
-      <div class="articlesList">
-        <div class="oneArticle">
-          <ul class="articlesList">
-            <?php
-            $sql = "SELECT id, articleUrl, title, imageSource,dateStored, articleDiscription, placeOfInterest FROM articles WHERE placeOfInterest = 'Babylon'";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
-                $articleTitle = $row["title"];
-                $articleLink = $row["articleUrl"];
-                ?>
-                <li><a href="<?php echo $articleLink; ?>"> <?php echo $articleTitle; ?> </a></li>
-                <?php
-              }
-            } else {
-              echo "<li>Brak artykułów dla tego miejsca.</li>";
-            }
-            ?>
-          </ul>
-        </div>
-        <div class="readMore">
-          Znajdź więcej artykułów na ten temat &rarr;
-        </div>
-      </div>
     </div>
     <div class="articlesOfCertainPlace">
-      <div class="placeName">
-        <h1>Egipt</h1>
-      </div>
-      <div class="articlesList">
-        <div class="oneArticle">
-          <ul class="articlesList">
-          </ul>
+        <div class="placeName">
+            <h1>Babilon</h1>
+            <div class="articleList">
+                <div class="oneArticle"> <?php
+                    displayArticleList($pdo, "Babylon");?> 
+                </div>
+            </div>
         </div>
         <div class="readMore">
-          Znajdź więcej artykułów na ten temat &rarr;
+          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
-      </div>
     </div>
     <div class="articlesOfCertainPlace">
-      <div class="placeName">
-        <h1>Minojczycy i Mykeńczycy</h1>
-      </div>
-      <div class="articlesList">
-        <div class="oneArticle">
-          <ul class="articlesList">
-          </ul>
+        <div class="placeName">
+            <h1>Egipt</h1>
+            <div class="articleList">
+                <div class="oneArticle"> <?php
+                    displayArticleList($pdo, "Egypt");?> 
+                </div>
+            </div>
         </div>
         <div class="readMore">
-          Znajdź więcej artykułów na ten temat &rarr;
+          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
-      </div>
     </div>
     <div class="articlesOfCertainPlace">
-      <div class="placeName">
-        <h1>Inne</h1>
-      </div>
-      <div class="articlesList">
-        <div class="oneArticle">
-          <ul class="articlesList">
-          </ul>
+        <div class="placeName">
+            <h1>Hellada</h1>
+            <div class="articleList">
+                <div class="oneArticle"> <?php
+                    displayArticleList($pdo, "Mycenaes");?> 
+                </div>
+            </div>
         </div>
         <div class="readMore">
-          Znajdź więcej artykułów na ten temat &rarr;
+          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
-      </div>
     </div>
+    
   </div>
 </body>
