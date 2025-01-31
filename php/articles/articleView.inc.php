@@ -86,9 +86,9 @@ function displayAllArticles(object $pdo, string $placeOfInterest)
 }
 function displayIndexArticles(object $pdo, array $articles2Display): void
 {
-    for ($i = 0; $i <= 3; $i++) { 
-        $result = getArticle($pdo, $articles2Display[$i]); 
-        if ($result) { 
+    for ($i = 0; $i < 3; $i++) {
+        $result = getArticle($pdo, $articles2Display[$i]);
+        if ($result) {
             ?>
             <section class="selectedArticle">
                 <?php $articleID = $result['articleID']; ?>
@@ -106,5 +106,19 @@ function displayIndexArticles(object $pdo, array $articles2Display): void
             </section>
             <?php
         }
+    }
+}
+function displayDisplayedArticlesList(object $pdo)
+{
+    $result = getDisplayedArticles($pdo);
+    if ($result) {
+        foreach ($result as $article) {
+            ?>
+            <button onclick="showForm(0)"><?php echo $article['articleID'] ?></button>
+            <?php
+        }
+    } else {
+        ?>
+        <h1>Brak artykułu</h1><?php
     }
 }

@@ -17,7 +17,13 @@
           } else{?>
             <li><a href="/BronzeAgeWebpage/php/includes/signOut.inc.php">Wyloguj się</a></li>
             <li><a href="/BronzeAgeWebpage/php/account.php">Moje Konto</a></li><?php    
-          }?>
+          }
+          if(isset($_SESSION["isAdmin"]) && ($_SESSION['isAdmin'] == 1)){
+            ?>
+            <li><a href="admin.php">Zarządzaj Stroną</a></li>
+            <?php
+          }
+          ?>
         </ul>
       </div>
     </div>

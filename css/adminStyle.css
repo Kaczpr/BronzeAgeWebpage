@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --navColor: rgba(234, 234, 234, 0.75);
+    --bodyColor: #f5f5f5;
+    --fontColor: #333;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    color: var(--fontColor);
+    background-color: var(--bodyColor);
+    width: 100%;
+    height: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: var(--fontColor);
+  }
+  ul {
+    list-style: none;
+  }
+  img {
+    max-width: 100%;
+  }
+  footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8em;
+  }
+  .navbar {
+    padding: 12px;
+    height: 120px;
+    background-color: var(--navColor);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar .container ul {
+    display: flex;
+    padding: 5px;
+  }
+  .navbar .container ul li a {
+    font-size: 1.5em;
+    padding: 20px;
+    transition: 0.5s ease;
+  }
+  .navbar .container ul li a:hover {
+    color: blue;
+    font-size: 2em;
+  }
+  .logo {
+    transition: 0.5s ease;
+  }
+  .logo:hover {
+    transform: scale(1.1);
+  }
