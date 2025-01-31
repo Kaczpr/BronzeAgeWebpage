@@ -84,11 +84,10 @@ footer {
 .articles {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-evenly;
     margin:  10svh 30svh;
     text-align: left;
-    align-items: flex-start;
+    
 }
 .placeName h1{
     border-bottom: 1px solid black;
@@ -121,7 +120,7 @@ footer {
   margin: auto;
   padding: 0 5svh 0 5svh;
 }
-.Ind_articlesSelection {
+.articlesSelection{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

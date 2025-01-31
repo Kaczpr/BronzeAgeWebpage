@@ -37,8 +37,10 @@ function displayArticleList(object $pdo, string $placeOfInterest): void
         ?>
         <ul class="articleList">
             <?php foreach ($result as $article) { ?>
-                <?php  $articleID = $article['articleID'] ?>
-                <a href="<?php echo "/BronzeAgeWebpage/php/articleDisplay.php?articleID=$articleID" ?>"><li><?= htmlspecialchars($article['title']) ?></li></a>
+                <?php $articleID = $article['articleID'] ?>
+                <a href="<?php echo "/BronzeAgeWebpage/php/articleDisplay.php?articleID=$articleID" ?>">
+                    <li><?= htmlspecialchars($article['title']) ?></li>
+                </a>
             <?php } ?>
         </ul>
         <?php
@@ -46,7 +48,38 @@ function displayArticleList(object $pdo, string $placeOfInterest): void
         echo "Brak artykułów dla podanego miejsca.";
     }
 }
-function displayAllArticles(object $pdo, string $placeOfInterest){
+function displayAllArticles(object $pdo, string $placeOfInterest)
+{
     $result = getArticleByPlace($pdo, $placeOfInterest);
+    if ($result) {
 
+        ?>
+        <section class="articles">
+            <section class="articlesSelection">
+                <?php foreach ($result as $article) { ?>
+                    <section class="Ind_selectedArticle">
+                        <a href="<?php echo $article['articleUrl']; ?>">
+                            <section class="Ind_articleImage">
+                                <img src="<?php echo $article['imageSource']; ?>" alt="Obrazek artykułu">
+                            </section>
+                            <section class="Ind_articleName">
+                                <h1><?php echo $article['title']; ?></h1>
+                            </section>
+                            <section class="Ind_articleDiscription">
+                                <p><?php echo $article['articleDiscription']; ?></p>
+                            </section>
+                        </a>
+                    </section>
+                    <?php
+                } ?>
+            </section>
+
+        </section>
+        <?php
+
+    }else{
+        ?>
+        <h2 style="text-align: center">"Brak artykułów dla takiego miejsca."</h2>
+        <?php
+    }
 }

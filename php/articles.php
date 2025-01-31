@@ -48,7 +48,7 @@ try {
             </div>
         </div>
         <div class="readMore">
-          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
+          <a href="allArticles.php?placeOfInterest=Assyria">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
     </div>
     <div class="articlesOfCertainPlace">
@@ -61,7 +61,7 @@ try {
             </div>
         </div>
         <div class="readMore">
-          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
+          <a href="allArticles.php?placeOfInterest=Babylon">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
     </div>
     <div class="articlesOfCertainPlace">
@@ -74,7 +74,7 @@ try {
             </div>
         </div>
         <div class="readMore">
-          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
+          <a href="allArticles.php?placeOfInterest=Egypt">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
     </div>
     <div class="articlesOfCertainPlace">
@@ -82,12 +82,12 @@ try {
             <h1>Hellada</h1>
             <div class="articleList">
                 <div class="oneArticle"> <?php
-                    displayArticleList($pdo, "Mycenaes");?> 
+                    displayArticleList($pdo, "Mycenae");?> 
                 </div>
             </div>
         </div>
         <div class="readMore">
-          <a href="assyriaArticles.php">Znajdź więcej artykułów na ten temat &rarr;</a>
+          <a href="allArticles.php?placeOfInterest=Mycenae">Znajdź więcej artykułów na ten temat &rarr;</a>
         </div>
     </div>
     
